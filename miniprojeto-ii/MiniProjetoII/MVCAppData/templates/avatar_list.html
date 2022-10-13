@@ -1,0 +1,23 @@
+{% extends "base_layout.html" %}
+
+{% block content %}
+
+  <table>
+    <thead>
+      <td>Id</td>
+      <td>Nome fantasia</td>
+      <td>Estudante</td>
+      <td>Curso</td>
+    </thead>
+    <tbody>
+      {% for avatar in avatars %}
+        <tr>
+          <td>{{avatar.id}}</td>
+          <td>{{avatar.fantasy_name}}</td>
+          <td>{{avatar.student}}</td>
+          <td>{{avatar.student.course}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base_layout.html" %}
+
+{% block content %}
+  
+  {% for student in students %}
+    <p>{{student.name}}</p>
+  {% endfor %}
+
+  <table>
+    <thead>
+      <td>Id</td>
+      <td>Nome</td>
+      <td>Curso</td>
+      <td>Excluir</td>
+    </thead>
+    <tbody>
+      {% for student in students %}
+        <tr>
+          <td>{{student.id}}</td>
+          <td>{{student.name}}</td>
+          <td>{{student.course}}</td>
+          <td><a href="/students/delete/{{student.id}}/">Excluir</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <ul>
+    <li><a href="/">Menu principal</a></li>
+    <li><a href="/students/create/">Criar Estudante</a></li>
+    <li><a href="/avatars/">Listar Avatares</a></li>
+  </ul>
+{% endblock %}

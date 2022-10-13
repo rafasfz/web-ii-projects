@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <h1>Lista de estudantes por curso: </h1>
+    <h2>total estudantes: {{estudantes_by_curso.total}}</h2>
+    <ul>
+      {% for curso in estudantes_by_curso.estudantes_by_curso %}
+        <li> 
+          <h3>{{curso.curso.nome}}</h3>
+            <ol>
+              {% for estudante in curso.estudantes %}
+                <li>{{estudante.primeiroNome}} {{estudante.ultimoNome}}</li>
+              {% endfor %}
+            </ol>
+        </li>
+        <br> <br>
+        {% endfor %}
+    </ul>
+    <br><br>
+    <p>Tabela com as infos</p>
+    <a href="/estudante/showForm/">Formulário de estudantes</a><br>
+  </div>
+</body>
+</html>

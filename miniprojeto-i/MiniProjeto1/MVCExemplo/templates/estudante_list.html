@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <p>Lista de estudantes cadastrados: </p>
+    <ul>
+      {% for estudante in estudantes %}
+        <li>
+            <span
+                th:text="${estudante.primeiroNome} +' '+ ${estudante.ultimoNome} + ' - Curso:  ' + ${estudante.curso} " />
+            <span>
+              {{estudante.primeiroNome}} {{estudante.ultimoNome}} - Curso: {{estudante.curso}}
+            </span>
+        </li>
+        {% endfor %}
+    </ul>
+    <br><br>
+    <p>Tabela com as infos</p>
+    <table>
+      <thead>
+        <th>Nome</th>
+        <th>Curso</th>
+        <th>Linguagem</th>
+        <th>Detalhes</th>
+        <th>Remover</th>
+      </thead>
+      <tbody>
+        {% for estudante in estudantes %}
+        <tr>
+          <td>{{estudante.primeiroNome}}</td>
+          <td>{{estudante.curso}}</td>
+          <td>{{estudante.linguagem}}</td>
+          <td><a href="/estudante/{{estudante.id}}/">detalhes</a></td>
+          <td><a href="/estudante/{{estudante.id}}/delete/">remover</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <br><br>
+    <a href="/estudante/showForm/">Formulário de estudantes</a><br>
+  </div>
+</body>
+</html>

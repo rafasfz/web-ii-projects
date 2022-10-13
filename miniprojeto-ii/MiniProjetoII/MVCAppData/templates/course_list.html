@@ -1,0 +1,23 @@
+{% extends "base_layout.html" %}
+
+{% block content %}
+
+  <table>
+    <thead>
+      <td>Id</td>
+      <td>Nome</td>
+      <td>Atualizar</td>
+      <td>Deletar</td>
+    </thead>
+    <tbody>
+      {% for course in courses %}
+        <tr>
+          <td>{{course.id}}</td>
+          <td>{{course.description}}</td>
+          <td><a href="/courses/update/{{course.id}}/">Atualizar</a></td>
+          <td><a href="/courses/delete/{{course.id}}/">Excluir</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
